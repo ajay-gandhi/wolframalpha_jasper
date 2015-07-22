@@ -9,6 +9,7 @@ from sys import maxint
 from client import jasperpath
 WORDS = ["WHO", "WHAT", "HOW MUCH", "HOW MANY", "HOW OLD"]
 
+PRIORITY = -1
 
 def handle(text, mic, profile):
     app_id = profile['keys']['WOLFRAMALPHA']
@@ -35,11 +36,7 @@ def isValid(text):
         return True
     elif re.search(r'\bwhat\b', text, re.IGNORECASE):
         return True
-    elif re.search(r'\bhow much\b', text, re.IGNORECASE):
-        return True
-    elif re.search(r'\bhow MANY\b', text, re.IGNORECASE):
-        return True
-    elif re.search(r'\bhow old\b', text, re.IGNORECASE):
+    elif re.search(r'\bhow\b', text, re.IGNORECASE):
         return True
     else:
         return False
